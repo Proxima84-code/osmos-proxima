@@ -1,14 +1,68 @@
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
+  background-size: 600% 600%;
+  animation: gradientMove 20s ease infinite;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100dvh;
   margin: 0;
+}
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
 .container {
   text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  width: 90%;
+}
+
+.start-btn, .login-form button {
+  background-color: #00c6ff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover, .login-form button:hover {
+  background-color: #0072ff;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.login-form input {
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.ai-box {
+  background-color: rgba(255,255,255,0.1);
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 0.95rem;
 }
