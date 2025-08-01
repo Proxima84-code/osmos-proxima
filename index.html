@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Osmoza Proxima</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>Witaj w Osmoza Proxima</h1>
     <p>Twoje centrum dowodzenia AI</p>
 
-    <button class="start-btn">Start</button>
+    <button class="start-btn" onclick="alert('Wkrótce uruchomienie!')">Start</button>
 
     <form class="login-form">
-      <input type="email" placeholder="Email" required>
-      <input type="password" placeholder="Hasło" required>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Hasło" required />
       <button type="submit">Zaloguj</button>
     </form>
 
-    <div class="ai-box">
-      <p><strong>AI Asystent:</strong> W czym mogę pomóc?</p>
+    <div class="ai-box" id="ai-box">
+      <p><strong>AI Asystent:</strong> Wczytywanie...</p>
     </div>
   </div>
+
+  <script>
+    // prosty fetch do backendu
+    fetch('/api/ai')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('ai-box').innerHTML = `<p><strong>AI Asystent:</strong> ${data.message}</p>`;
+      })
+      .catch(() => {
+        document.getElementById('ai-box').innerHTML = `<p><strong>AI Asystent:</strong> Błąd połączenia z serwerem 😢</p>`;
+      });
+  </script>
 </body>
 </html>
