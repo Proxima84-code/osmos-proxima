@@ -1,35 +1,48 @@
+/* Reset & body */
 body {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   background: linear-gradient(270deg, #0f2027, #203a43, #2c5364);
   background-size: 600% 600%;
   animation: gradientMove 20s ease infinite;
-  color: white;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
   margin: 0;
+  padding: 1rem; /* lepszy spacing na mniejszych ekranach */
+  box-sizing: border-box;
 }
 
+/* Gradient animation */
 @keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+/* Container */
 .container {
   text-align: center;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.06);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* dla Safari */
   max-width: 400px;
-  width: 90%;
+  width: 100%;
+  transition: transform 0.3s ease;
 }
 
-.start-btn, .login-form button {
-  background-color: #00c6ff;
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Button styles */
+.start-btn,
+.login-form button {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -37,13 +50,16 @@ body {
   border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.start-btn:hover, .login-form button:hover {
-  background-color: #0072ff;
+.start-btn:hover,
+.login-form button:hover {
+  filter: brightness(1.1);
+  transform: scale(1.03);
 }
 
+/* Login form */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -56,13 +72,28 @@ body {
   border: none;
   border-radius: 10px;
   font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s ease;
 }
 
+.login-form input::placeholder {
+  color: #ccc;
+}
+
+.login-form input:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* AI Message Box */
 .ai-box {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   margin-top: 1.5rem;
   padding: 1rem;
   border-radius: 12px;
   font-style: italic;
   font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e0e0e0;
 }
