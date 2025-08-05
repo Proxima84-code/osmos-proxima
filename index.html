@@ -1,43 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Osmoza Proxima</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel logowania AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Witaj w Osmoza Proxima</h1>
-    <p>Twoje centrum dowodzenia AI</p>
+    <h1>Witaj w Panelu AI</h1>
+    
+    <button class="start-btn">Rozpocznij</button>
+    
+    <form class="login-form">
+      <input type="text" placeholder="Nazwa użytkownika" required>
+      <input type="password" placeholder="Hasło" required>
+      <button type="submit">Zaloguj</button>
+    </form>
 
     <div class="ai-box">
-      <p><strong>Asystent AI:</strong> W czym mogę pomóc?</p>
-      <div class="chat-interface">
-        <input type="text" id="userInput" placeholder="Wpisz wiadomość..." />
-        <button onclick="sendMessage()">Wyślij</button>
-      </div>
-      <div id="chatLog"></div>
+      „Twoja osobista AI asystentka czeka na Ciebie.”
     </div>
   </div>
-
-  <script>
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const chatLog = document.getElementById("chatLog");
-
-      if (input.value.trim() !== "") {
-        const userMsg = document.createElement("p");
-        userMsg.innerHTML = "<strong>Ty:</strong> " + input.value;
-        chatLog.appendChild(userMsg);
-
-        const aiMsg = document.createElement("p");
-        aiMsg.innerHTML = "<strong>AI:</strong> Pracuję nad odpowiedzią...";
-        chatLog.appendChild(aiMsg);
-
-        input.value = "";
-      }
-    }
-  </script>
 </body>
 </html>
